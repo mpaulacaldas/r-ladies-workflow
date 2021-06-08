@@ -1,0 +1,270 @@
+---
+title: "Filling your bag of workflow tricks"
+subtitle: "R-Ladies Dammam"
+author: "María Paula Caldas"
+description: "Presentation for R-Ladies Saudi Arabia (Dammam) on 2021-06-09."
+date: "2021-06-09"
+photo_creds: "[Didssph](https://unsplash.com/photos/Q9E4de1OxFk)" 
+url_unsplash: "https://images.unsplash.com/photo-1613117943693-9864648f7cb5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1500&q=80"
+url_website: "https://mpaulacaldas.com"
+url_twitter: "https://twitter.com/mapaulacaldas"
+url_github: "https://github.com/mpaulacaldas"
+url_slides: "https://mpaulacaldas.github.io/r-ladies-workflow"
+url_source: "https://github.com/mpaulacaldas/r-ladies-workflow"
+twitter_card: "https://raw.githubusercontent.com/mpaulacaldas/r-ladies-workflow/gh-pages/share-card.png"
+background_position: "1050px 20px"
+background_size: "100px"
+output:
+  xaringan::moon_reader:
+    css: ["default", "rladies", "rladies-fonts", "mpc.css"]
+    lib_dir: libs
+    seal: false # to customise the title slide
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      highlightLanguage: ["r", "css", "yaml"]
+      countIncrementalSlides: true
+      ratio: "16:9"
+      beforeInit: "https://platform.twitter.com/widgets.js"
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(fig.retina = 3)
+
+library(xaringanExtra)
+
+xaringanExtra::use_panelset()    # panels
+xaringanExtra::use_share_again() # adds share bar at the bottom
+xaringanExtra::use_clipboard()   # copy code from chunks to clipboard
+xaringanExtra::style_share_again(
+  share_buttons = c("twitter", "linkedin")
+  )
+xaringanExtra::embed_xaringan(
+  url = rmarkdown::metadata$url_slides, 
+  ratio = "16:9"
+  )
+
+emoji <- function(x) paste0(emo::ji(x), "&nbsp;")
+```
+
+```{r metathis, echo=FALSE}
+library(metathis)
+meta() %>%
+  meta_name("github-repo" = rmarkdown::metadata$url_source) %>% 
+  meta_social(
+    title = rmarkdown::metadata$title,
+    description = rmarkdown::metadata$description,
+    url = rmarkdown::metadata$url_slides,
+    image = rmarkdown::metadata$twitter_card,
+    image_alt = paste(
+      rmarkdown::metadata$title, 
+      rmarkdown::metadata$subtitle,
+      rmarkdown::metadata$author,
+      rmarkdown::metadata$date,
+      sep = ". "
+      ),
+    og_type = "website",
+    og_author = rmarkdown::metadata$author,
+    og_locale = "es_ES",
+    twitter_card_type = "summary_large_image",
+    twitter_creator = paste0("@", basename(rmarkdown::metadata$url_twitter))
+  )
+```
+
+class: title-slide, inverse, bottom
+background-image: url(`r rmarkdown::metadata$url_unsplash`)
+background-size: cover
+
+# `r rmarkdown::metadata$title`
+
+## `r rmarkdown::metadata$subtitle`
+
+### `r rmarkdown::metadata$author`
+
+### `r rmarkdown::metadata$date`
+
+.right[
+Photo by `r rmarkdown::metadata$photo_creds`
+]
+
+---
+class: about-me, right, bottom
+
+
+<img style="border-radius: 50%;" src="https://github.com/mpaulacaldas.png" width="150px"/>
+
+## `r rmarkdown::metadata$author`
+
+<!-- ### Postdoctoral Research Scientist -->
+
+<!-- ### University of Pennsylvania, Philadelphia, PA, USA -->
+
+
+[`r icon::fa("link")` `r basename(rmarkdown::metadata$url_website)`](`r rmarkdown::metadata$url_website`)<br/>
+[`r icon::fa("twitter")` `r basename(rmarkdown::metadata$url_twitter)`](`r rmarkdown::metadata$url_twitter`)<br/>
+[`r icon::fa("github")` `r basename(rmarkdown::metadata$url_github)`](`r rmarkdown::metadata$url_github`)<br/>
+
+---
+class: left, middle
+
+# Links
+
+### Slides: <`r rmarkdown::metadata$url_slides`>
+### Github repo: <`r rmarkdown::metadata$url_source`>
+
+---
+
+# What is a workflow?
+
+The *way* we do things... Borrow from Deloitte slides
+
+---
+
+# Workflows around the R universe
+
+Simple, niche, complex...
+
+- Jenny Brian -- How to name files.
+- Golem -- Shiny apps.
+- Usethis, for package development + workflow helpers
+<!-- https://twitter.com/juliasilge/status/1149262386358099968?s=20 -->
+- targets and drake
+
+Books:
+
+- Package development: https://r-pkgs.org/workflows101.html or https://r-pkgs.org/whole-game.html
+- What they forgot.
+
+Presentations:
+
+- LatinR: https://github.com/jennybc/zen-art-workflow
+
+
+Sticker: Everything I know is from Jenny Brian
+
+<!-- https://github.com/MonkmanMH/EIKIFJB#readme -->
+
+---
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">👩‍🏫 I was gonna round up fave back-to-school <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> resources, then realized the inimitable <a href="https://twitter.com/JennyBryan?ref_src=twsrc%5Etfw">@JennyBryan</a> has almost all of them here — including {here}!<br>📁 &quot;Zen And The aRt Of Workflow Maintenance&quot; <a href="https://t.co/XJgEeWwk4L">https://t.co/XJgEeWwk4L</a><br>📝 &quot;Project-oriented workflow&quot; <a href="https://t.co/6XBJtkeYsn">https://t.co/6XBJtkeYsn</a></p>&mdash; Mara Averick (@dataandme) <a href="https://twitter.com/dataandme/status/1168871767085113344?ref_src=twsrc%5Etfw">September 3, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+---
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">I couldn&#39;t find a good explanation on what Projects *did* &amp; why it was better than manually saving all my scripts in the same folder.</p>&mdash; Jesse Mostipak is making mirepoix for #SLICED (@kierisi) <a href="https://twitter.com/kierisi/status/899030756202356736?ref_src=twsrc%5Etfw">August 19, 2017</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+*Show what an RStudio project does? Allow easy tab autocomplete, navigation with the files pane, etc*
+
+---
+background-image: url(https://bookdown.org/yihui/rmarkdown/images/cover.png)
+background-position: 800px 250px
+background-size: 230px
+
+# Slide for highlighting a book?
+
+Text
+
+.footnote[`r emoji("book")` [R Markdown: The Definite Guide](https://bookdown.org/yihui/rmarkdown/)]
+
+---
+class: inverse, bottom, left
+
+# `r emoji("sparkles")` Trick #1
+## Customise how R works for you
+
+---
+
+## Speak about .Renviron, .Rprofile
+
+- Cómo crear un documento `.Rmd` con RStudio.
+- Cómo *tejer* el documento.
+
+---
+class: inverse, bottom, left
+
+# `r emoji("sparkles")` Trick #2
+## Customise the RStudio defaults
+
+---
+
+## Configurations that can be stored, dotfiles
+
+---
+class: inverse, bottom, left
+
+# `r emoji("sparkles")` Trick #3
+## Create your own snippets
+
+---
+
+Example with the data base connection.
+
+---
+class: inverse, bottom, left
+
+# `r emoji("sparkles")` Trick #4
+## Use the shortcuts!
+
+---
+
+Show some of the default ones, show how to set them up.
+
+
+---
+class: inverse, bottom, left
+
+# `r emoji("sparkles")` Trick #5
+## Automate project set-up
+
+---
+
+- Mention usethis, ThinkR's idea for package development...
+- Also mention fs
+
+---
+class: inverse, bottom, left
+
+# `r emoji("sparkles")` Trick #6
+## Code with style
+
+---
+
+- styler
+- Ctrl + Shift + A
+- wrapRmd + RStudio Markdown viewer
+
+---
+class: inverse, bottom, left
+
+# `r emoji("sparkles")` Trick #6
+## Make interactive work more fun with the IDE
+
+---
+
+## Connections, jobs and git pane?
+
+Maybe just do one.
+
+
+---
+class: inverse, bottom, left
+
+# `r emoji("sparkles")` Trick #6
+## Do it from R
+
+---
+
+- Download files
+- Unzip files
+- Navigate to websites
+- Lookup source code
+
+---
+class: inverse, middle, left
+background-image: url(`r rmarkdown::metadata$url_unsplash`)
+background-size: cover
+
+# Thank you!
+## Any questions?
