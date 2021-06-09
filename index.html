@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Filling your bag of workflow tricks</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="María Paula Caldas" />
+    <meta name="date" content="2021-06-09" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/rladies.css" rel="stylesheet" />
+    <link href="libs/remark-css/rladies-fonts.css" rel="stylesheet" />
+    <link href="libs/panelset/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset/panelset.js"></script>
+    <script src="libs/clipboard/clipboard.min.js"></script>
+    <link href="libs/shareon/shareon.min.css" rel="stylesheet" />
+    <script src="libs/shareon/shareon.min.js"></script>
+    <link href="libs/xaringanExtra-shareagain/shareagain.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-shareagain/shareagain.js"></script>
+    <link href="libs/xaringanExtra-clipboard/xaringanExtra-clipboard.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-clipboard/xaringanExtra-clipboard.js"></script>
+    <script>window.xaringanExtraClipboard(null, {"button":"Copy Code","success":"Copied!","error":"Press Ctrl+C to Copy"})</script>
+    <script src="libs/fitvids/fitvids.min.js"></script>
+    <link href="libs/font-awesome/css/fontawesome-all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="mpc.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+class: title-slide, inverse, bottom
+background-image: url(https://images.unsplash.com/photo-1613117943693-9864648f7cb5?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1500&amp;q=80)
+background-size: cover
+
+# Filling your bag of workflow tricks
+
+## R-Ladies Dammam
+
+### María Paula Caldas
+
+### 2021-06-09
+
+.right[
+Photo by [Didssph](https://unsplash.com/photos/Q9E4de1OxFk)
+]
+
+---
+class: about-me, right, bottom
+
+
+&lt;img style="border-radius: 50%;" src="https://github.com/mpaulacaldas.png" width="150px"/&gt;
+
+## María Paula Caldas
+
+[<i class="fas  fa-link "></i> mpaulacaldas.com](https://mpaulacaldas.com)&lt;br/&gt;
+[<i class="fab  fa-twitter "></i> mapaulacaldas](https://twitter.com/mapaulacaldas)&lt;br/&gt;
+[<i class="fab  fa-github "></i> mpaulacaldas](https://github.com/mpaulacaldas)&lt;br/&gt;
+
+---
+class: left, middle
+
+# Links
+
+### Slides: &lt;https://mpaulacaldas.github.io/r-ladies-workflow&gt;
+### Github repo: &lt;https://github.com/mpaulacaldas/r-ladies-workflow&gt;
+
+---
+class: inverse, left, middle
+
+# 👩‍💻 What are workflows?
+
+---
+class: middle
+
+A workflow is about the _**way**_ I work in projects, either by myself or with others.
+
+--
+## It can be about the way I...
+
+--
+- Organise my folders
+
+--
+- Name my files
+
+--
+- Share my work
+
+--
+- Handle repetitive tasks
+
+--
+
+## Utimately, R is also a __workflow tool__\*
+
+--
+
+.footnote[
+\* Credit to [David Keyes](https://rfortherestofus.com/2019/09/r-workflow-tool/)
+]
+
+---
+class: inverse, left, middle
+
+# Workflows are a popular topic in the R universe
+
+---
+
+## About topics that we all thought we understood...
+
+.pull-left[
+The **three fundamental rules of file names**:
+
+1. Machine readable
+1. Human readable
+1. Play well with default ordering
+]
+
+.pull-right[
+&lt;script async class="speakerdeck-embed" data-slide="1" data-id="5e4b07f0d9a94f8e9a29b902bad6ed0b" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"&gt;&lt;/script&gt;
+]
+
+---
+
+## About things that in retrospect sound obvious...
+
+.pull-left[
+
+- Set-ups that encourage reproducibility.
+- Project-oriented workflows.
+- Safe paths.
+
+&lt;br/&gt;
+
+🎥&amp;nbsp; Keynote materias of [Zen and the art of workflow maintainance](https://github.com/jennybc/zen-art-workflow)
+
+📚&amp;nbsp; Section **A holistic workflow** from [What they forgot to teach you about R](https://rstats.wtf/save-source.html)
+
+]
+
+.pull-right[
+&lt;script async class="speakerdeck-embed" data-slide="1" data-id="b3fffa871213414491f868936df0633b" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"&gt;&lt;/script&gt;
+]
+
+
+---
+background-image: url(https://github.com/allisonhorst/stats-illustrations/blob/master/rstats-artwork/usethis.png?raw=true)
+background-position: 500px 150px
+background-size: 700px
+
+## Many tools to improve specific workflows...
+
+.pull-left[
+
+[**usethis**](https://usethis.r-lib.org/) to automate repetitive tasks during project setup and development
+
+[**golem**](https://thinkr-open.github.io/golem/) for Shiny apps
+
+[**targets**](https://github.com/ropensci/targets) for reproducible pipelines
+
+]
+
+---
+class: inverse, bottom, left
+
+# ✨&amp;nbsp; Trick #1
+## Customise how R works for you
+
+---
+
+## Customise R Startup
+
+.pull-left[
+
+### `.Renviron`
+
+Contains environment variables to be set in R sessions.
+
+- API keys
+- R-specific environment variables
+
+
+```r
+usethis::edit_r_environ()
+```
+
+]
+
+.pull-right[
+
+### `.Rprofile`
+
+Contains R code run at the start of every session.
+
+- Packages that you use interactively
+- Global options
+
+
+```r
+usethis::edit_r_profile()
+```
+
+]
+
+.footnote[
+📖&amp;nbsp; [What they forgot to teach you about R](https://rstats.wtf/r-startup.html), by Jenny Brian and Jim Hester
+]
+
+---
+
+### Extract from my `.Rprofile`
+
+
+```r
+if (interactive()) {
+  # packages I use interactively
+  suppressMessages(require(devtools))
+  suppressMessages(require(testthat))
+  
+  # to know the name of my branch if using git
+  prompt::set_prompt(prompt::prompt_git)
+  
+  # because I use it all the time
+  suppressMessages(require(datapasta))
+}
+
+# see ?shiny::`shiny-options`
+options(
+  shiny.launch.browser = FALSE,
+  shiny.port = 1234
+)
+```
+
+.footnote[
+📦&amp;nbsp; [`rprofile`](https://github.com/csgillespie/rprofile), by Colin Guillespie
+]
+
+---
+class: inverse, bottom, left
+
+# ✨&amp;nbsp; Trick #2
+## Customise the RStudio defaults... repeatedly
+
+---
+background-image: url(screenshots/rdata.png)
+background-position: 550px 50px
+background-size: 600px
+
+.pull-left[
+## Customise the RStudio defaults
+
+&lt;br/&gt;
+
+Relying on .RData files hinders **reproducibility**
+
+Avoid pain when R crashes
+
+]
+
+---
+background-image: url(screenshots/utf.png)
+background-position: 550px 50px
+background-size: 600px
+
+.pull-left[
+## Customise the RStudio defaults
+
+&lt;br/&gt;
+
+Save scripts with UTF-8 encoding
+
+]
+
+---
+
+
+## Customise the RStudio defaults
+
+.pull-left[
+
+As of **RStudio 1.3**, RStudio preferences are stored in:
+
+```
+~/.config/rstudio/rstudio-prefs.json
+```
+
+These can then be saved in **dotfiles** that you can use to set-up other computers.
+
+]
+
+.pull-right[
+
+```json
+{
+    "save_workspace": "never",
+    "load_workspace": false,
+    "initial_working_directory": "~/Desktop",
+    "posix_terminal_shell": "bash",
+    "restore_last_project": false,
+    "restore_source_documents": false,
+    "default_project_location": "~/Desktop",
+    "spelling_dictionary_language": "en_GB",
+    "document_author": "María Paula",
+    "rmd_viewer_type": "pane",
+    "default_encoding": "UTF-8"
+}
+```
+
+
+]
+
+.footnote[
+📝&amp;nbsp; https://blog.rstudio.com/2020/02/18/rstudio-1-3-preview-configuration
+]
+
+---
+class: inverse, bottom, left
+
+# ✨&amp;nbsp; Trick #3
+## Use the shortcuts!
+
+---
+
+.pull-left[
+
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+
+As of **RStudio 1.4**
+
+`Ctrl+Shift+P`
+
+to launch the command palette
+
+.footnote[_This functionality also exists in other IDEs!_]
+
+]
+
+.pull-right[
+&lt;blockquote class="twitter-tweet tw-center-align" data-conversation="none"&gt;&lt;p lang="en" dir="ltr"&gt;That&amp;#39;s easy, Cmd/Control + Shift + P for the command palette! (And then you don&amp;#39;t have to remember any more shortcuts!)&lt;br&gt;&lt;br&gt;[gif: Demo opening Command Palette in RStudio] &lt;a href="https://t.co/gYA8N1TpI2"&gt;pic.twitter.com/gYA8N1TpI2&lt;/a&gt;&lt;/p&gt;&amp;mdash; Garrick Aden-Buie (@grrrck) &lt;a href="https://twitter.com/grrrck/status/1378799812183793670?ref_src=twsrc%5Etfw"&gt;April 4, 2021&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+]
+
+---
+
+## Map your own shortcuts
+
+R addins can be mapped to keyboard shortcuts.
+
+Dean Attali has a [curated list](https://github.com/daattali/addinslist) of packages with addins. My favourites include:
+
+- [styler](https://github.com/r-lib/styler)
+- [xaringan](https://github.com/yihui/xaringan)
+- [remedy](https://github.com/ThinkR-open/remedy)
+- [WrapRmd](https://github.com/tjmahr/WrapRmd)
+
+Under *Tools &gt; Modify keyboard shortcuts*
+
+.footnote[
+📝&amp;nbsp; https://support.rstudio.com/hc/en-us/articles/206382178-Customizing-Keyboard-Shortcuts
+]
+
+---
+class: inverse, bottom, left
+
+# ✨&amp;nbsp; Trick #3
+## Use snippets
+
+---
+
+## Use snippets... or create your own
+
+Under *RStudio &gt; Preferences &gt; Code &gt; Snippets &gt; Edit snippets*
+
+.pull-left[
+
+### R
+
+```
+snippet postgis
+  library(DBI)
+  library(RPostgres)
+  
+  con &lt;- DBI::dbConnect(
+    RPostgres::Postgres(),
+    dbnmae = "my_db",
+    host = "myhost.org"
+  )
+```
+
+]
+
+.pull-right[
+
+### Markdown
+
+```
+snippet dets
+	&lt;details&gt;&lt;summary&gt; ${1:summary} &lt;/summary&gt;
+	${2:contents}
+	&lt;/details&gt;
+```
+]
+
+.footnote[
+📝&amp;nbsp; [Code Snippets in the RStudio IDE](https://support.rstudio.com/hc/en-us/articles/204463668-Code-Snippets)
+]
+
+---
+
+class: inverse, bottom, left
+
+# ✨&amp;nbsp; Trick #5
+## Automate project set-up
+
+---
+
+## Automate project set-up with `usethis` and `fs`
+
+.pull-left[
+- `usethis` can be useful in all kinds of projects, beyond R packages.
+    - For package development, see [The whole game](https://r-pkgs.org/whole-game.html) chapter in the **R packages** book.
+    - For Shiny apps, see the [golem](https://thinkr-open.github.io/golem/articles/a_start.html) framework.
+
+- `fs` is helps create, delete and modify files. It is robust and has some good defaults.
+]
+
+.pull-right[
+
+```r
+# Creates and switches you to project
+create_project("myproject")
+
+# Add documentation
+use_readme_md()
+
+# Set up git
+use_git()
+use_github()
+
+# Create directories
+fs::dir_create(c("data", "data-raw", "docs"))
+
+# Create and open up a file
+file.edit("data-raw/README.md")
+```
+]
+
+---
+class: inverse, bottom, left
+
+# ✨&amp;nbsp; Trick #6
+## Get the little things done from R
+
+(My current favourites)
+
+---
+
+### Navigate to websites or directories
+
+
+```r
+browseURL("https://twitter.com/rladiesdammam")
+```
+
+### Download files
+
+
+```r
+usethis::use_zip("bit.ly/usethis-shortlink-example")
+# alternatively, usethis::use_code() is chattier
+```
+
+### Lookup the source code
+
+
+```r
+lookup::lookup(mean)
+```
+
+### And you?
+
+---
+class: inverse, middle, left
+background-image: url(https://images.unsplash.com/photo-1613117943693-9864648f7cb5?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1500&amp;q=80)
+background-size: cover
+
+# Thank you!
+## Any questions?
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="https://platform.twitter.com/widgets.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"highlightLanguage": ["r", "css", "yaml"],
+"countIncrementalSlides": true,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
