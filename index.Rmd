@@ -120,7 +120,10 @@ class: middle
 
 A workflow is about the _**way**_ I work in projects, either by myself or with others.
 
---
+---
+class: middle
+
+
 ## It can be about the way I...
 
 --
@@ -137,11 +140,11 @@ A workflow is about the _**way**_ I work in projects, either by myself or with o
 
 --
 
-## Utimately, R is also a __workflow tool__\*
+## Ultimately, R is also a __workflow tool__\*
 
 --
 
-.footnote[
+.small[
 \* Credit to [David Keyes](https://rfortherestofus.com/2019/09/r-workflow-tool/)
 ]
 
@@ -178,7 +181,7 @@ The **three fundamental rules of file names**:
 
 <br/>
 
-`r emoji("movie_camera")` Keynote materias of [Zen and the art of workflow maintainance](https://github.com/jennybc/zen-art-workflow)
+`r emoji("movie_camera")` Keynote materials of [Zen and the art of workflow maintenance ](https://github.com/jennybc/zen-art-workflow)
 
 `r emoji("books")` Section **A holistic workflow** from [What they forgot to teach you about R](https://rstats.wtf/save-source.html)
 
@@ -204,6 +207,10 @@ background-size: 700px
 
 [**targets**](https://github.com/ropensci/targets) for reproducible pipelines
 
+]
+
+.footnote[
+Artwork by [@allison_horst](https://twitter.com/allison_horst/)
 ]
 
 ---
@@ -516,8 +523,6 @@ usethis::use_zip("bit.ly/usethis-shortlink-example")
 ```{r}
 lookup::lookup(mean)
 ```
-
-### And you?
 
 ---
 class: inverse, middle, left
