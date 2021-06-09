@@ -32,7 +32,7 @@ editor_options:
 
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
-knitr::opts_chunk$set(fig.retina = 3)
+knitr::opts_chunk$set(fig.retina = 3, eval = FALSE)
 
 library(xaringanExtra)
 
@@ -98,11 +98,6 @@ class: about-me, right, bottom
 
 ## `r rmarkdown::metadata$author`
 
-<!-- ### Postdoctoral Research Scientist -->
-
-<!-- ### University of Pennsylvania, Philadelphia, PA, USA -->
-
-
 [`r icon::fa("link")` `r basename(rmarkdown::metadata$url_website)`](`r rmarkdown::metadata$url_website`)<br/>
 [`r icon::fa("twitter")` `r basename(rmarkdown::metadata$url_twitter)`](`r rmarkdown::metadata$url_twitter`)<br/>
 [`r icon::fa("github")` `r basename(rmarkdown::metadata$url_github)`](`r rmarkdown::metadata$url_github`)<br/>
@@ -116,57 +111,100 @@ class: left, middle
 ### Github repo: <`r rmarkdown::metadata$url_source`>
 
 ---
+class: inverse, left, middle
 
-# What is a workflow?
+# `r emo::ji("woman_technologist")` What are workflows?
 
-The *way* we do things... Borrow from Deloitte slides
+---
+class: middle
+
+A workflow is about the _**way**_ I work in projects, either by myself or with others.
+
+--
+## It can be about the way I...
+
+--
+- Organise my folders
+
+--
+- Name my files
+
+--
+- Share my work
+
+--
+- Handle repetitive tasks
+
+--
+
+## Utimately, R is also a __workflow tool__\*
+
+--
+
+.footnote[
+\* Credit to [David Keyes](https://rfortherestofus.com/2019/09/r-workflow-tool/)
+]
+
+---
+class: inverse, left, middle
+
+# Workflows are a popular topic in the R universe
 
 ---
 
-# Workflows around the R universe
+## About topics that we all thought we understood...
 
-Simple, niche, complex...
+.pull-left[
+The **three fundamental rules of file names**:
 
-- Jenny Brian -- How to name files.
-- Golem -- Shiny apps.
-- Usethis, for package development + workflow helpers
-<!-- https://twitter.com/juliasilge/status/1149262386358099968?s=20 -->
-- targets and drake
+1. Machine readable
+1. Human readable
+1. Play well with default ordering
+]
 
-Books:
-
-- Package development: https://r-pkgs.org/workflows101.html or https://r-pkgs.org/whole-game.html
-- What they forgot.
-
-Presentations:
-
-- LatinR: https://github.com/jennybc/zen-art-workflow
-
-
-Sticker: Everything I know is from Jenny Brian
-
-<!-- https://github.com/MonkmanMH/EIKIFJB#readme -->
+.pull-right[
+<script async class="speakerdeck-embed" data-slide="1" data-id="5e4b07f0d9a94f8e9a29b902bad6ed0b" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
+]
 
 ---
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">👩‍🏫 I was gonna round up fave back-to-school <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> resources, then realized the inimitable <a href="https://twitter.com/JennyBryan?ref_src=twsrc%5Etfw">@JennyBryan</a> has almost all of them here — including {here}!<br>📁 &quot;Zen And The aRt Of Workflow Maintenance&quot; <a href="https://t.co/XJgEeWwk4L">https://t.co/XJgEeWwk4L</a><br>📝 &quot;Project-oriented workflow&quot; <a href="https://t.co/6XBJtkeYsn">https://t.co/6XBJtkeYsn</a></p>&mdash; Mara Averick (@dataandme) <a href="https://twitter.com/dataandme/status/1168871767085113344?ref_src=twsrc%5Etfw">September 3, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+## About things that in retrospect sound obvious...
+
+.pull-left[
+
+- Set-ups that encourage reproducibility.
+- Project-oriented workflows.
+- Safe paths.
+
+<br/>
+
+`r emoji("movie_camera")` Keynote materias of [Zen and the art of workflow maintainance](https://github.com/jennybc/zen-art-workflow)
+
+`r emoji("books")` Section **A holistic workflow** from [What they forgot to teach you about R](https://rstats.wtf/save-source.html)
+
+]
+
+.pull-right[
+<script async class="speakerdeck-embed" data-slide="1" data-id="b3fffa871213414491f868936df0633b" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
+]
+
 
 ---
+background-image: url(https://github.com/allisonhorst/stats-illustrations/blob/master/rstats-artwork/usethis.png?raw=true)
+background-position: 500px 150px
+background-size: 700px
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">I couldn&#39;t find a good explanation on what Projects *did* &amp; why it was better than manually saving all my scripts in the same folder.</p>&mdash; Jesse Mostipak is making mirepoix for #SLICED (@kierisi) <a href="https://twitter.com/kierisi/status/899030756202356736?ref_src=twsrc%5Etfw">August 19, 2017</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+## Many tools to improve specific workflows...
 
-*Show what an RStudio project does? Allow easy tab autocomplete, navigation with the files pane, etc*
+.pull-left[
 
----
-background-image: url(https://bookdown.org/yihui/rmarkdown/images/cover.png)
-background-position: 800px 250px
-background-size: 230px
+[**usethis**](https://usethis.r-lib.org/) to automate repetitive tasks during project setup and development
 
-# Slide for highlighting a book?
+[**golem**](https://thinkr-open.github.io/golem/) for Shiny apps
 
-Text
+[**targets**](https://github.com/ropensci/targets) for reproducible pipelines
 
-.footnote[`r emoji("book")` [R Markdown: The Definite Guide](https://bookdown.org/yihui/rmarkdown/)]
+]
 
 ---
 class: inverse, bottom, left
@@ -176,43 +214,243 @@ class: inverse, bottom, left
 
 ---
 
-## Speak about .Renviron, .Rprofile
+## Customise R Startup
 
-- Cómo crear un documento `.Rmd` con RStudio.
-- Cómo *tejer* el documento.
+.pull-left[
+
+### `.Renviron`
+
+Contains environment variables to be set in R sessions.
+
+- API keys
+- R-specific environment variables
+
+```{r, eval = FALSE}
+usethis::edit_r_environ()
+```
+
+]
+
+.pull-right[
+
+### `.Rprofile`
+
+Contains R code run at the start of every session.
+
+- Packages that you use interactively
+- Global options
+
+```{r, eval = FALSE}
+usethis::edit_r_profile()
+```
+
+]
+
+.footnote[
+`r emoji("book")` [What they forgot to teach you about R](https://rstats.wtf/r-startup.html), by Jenny Brian and Jim Hester
+]
+
+---
+
+### Extract from my `.Rprofile`
+
+```{r}
+if (interactive()) {
+  # packages I use interactively
+  suppressMessages(require(devtools))
+  suppressMessages(require(testthat))
+  
+  # to know the name of my branch if using git
+  prompt::set_prompt(prompt::prompt_git)
+  
+  # because I use it all the time
+  suppressMessages(require(datapasta))
+}
+
+# see ?shiny::`shiny-options`
+options(
+  shiny.launch.browser = FALSE,
+  shiny.port = 1234
+)
+```
+
+.footnote[
+`r emoji("package")` [`rprofile`](https://github.com/csgillespie/rprofile), by Colin Guillespie
+]
 
 ---
 class: inverse, bottom, left
 
 # `r emoji("sparkles")` Trick #2
+## Customise the RStudio defaults... repeatedly
+
+---
+background-image: url(screenshots/rdata.png)
+background-position: 550px 50px
+background-size: 600px
+
+.pull-left[
 ## Customise the RStudio defaults
+
+<br/>
+
+Relying on .RData files hinders **reproducibility**
+
+Avoid pain when R crashes
+
+]
+
+---
+background-image: url(screenshots/utf.png)
+background-position: 550px 50px
+background-size: 600px
+
+.pull-left[
+## Customise the RStudio defaults
+
+<br/>
+
+Save scripts with UTF-8 encoding
+
+]
 
 ---
 
-## Configurations that can be stored, dotfiles
+
+## Customise the RStudio defaults
+
+.pull-left[
+
+As of **RStudio 1.3**, RStudio preferences are stored in:
+
+```
+~/.config/rstudio/rstudio-prefs.json
+```
+
+These can then be saved in **dotfiles** that you can use to set-up other computers.
+
+]
+
+.pull-right[
+
+```json
+{
+    "save_workspace": "never",
+    "load_workspace": false,
+    "initial_working_directory": "~/Desktop",
+    "posix_terminal_shell": "bash",
+    "restore_last_project": false,
+    "restore_source_documents": false,
+    "default_project_location": "~/Desktop",
+    "spelling_dictionary_language": "en_GB",
+    "document_author": "María Paula",
+    "rmd_viewer_type": "pane",
+    "default_encoding": "UTF-8"
+}
+```
+
+
+]
+
+.footnote[
+`r emoji("memo")` https://blog.rstudio.com/2020/02/18/rstudio-1-3-preview-configuration
+]
 
 ---
 class: inverse, bottom, left
 
 # `r emoji("sparkles")` Trick #3
-## Create your own snippets
-
----
-
-Example with the data base connection.
-
----
-class: inverse, bottom, left
-
-# `r emoji("sparkles")` Trick #4
 ## Use the shortcuts!
 
 ---
 
-Show some of the default ones, show how to set them up.
+.pull-left[
 
+<br/>
+<br/>
+<br/>
+
+As of **RStudio 1.4**
+
+`Ctrl+Shift+P`
+
+to launch the command palette
+
+.footnote[_This functionality also exists in other IDEs!_]
+
+]
+
+.pull-right[
+<blockquote class="twitter-tweet tw-center-align" data-conversation="none"><p lang="en" dir="ltr">That&#39;s easy, Cmd/Control + Shift + P for the command palette! (And then you don&#39;t have to remember any more shortcuts!)<br><br>[gif: Demo opening Command Palette in RStudio] <a href="https://t.co/gYA8N1TpI2">pic.twitter.com/gYA8N1TpI2</a></p>&mdash; Garrick Aden-Buie (@grrrck) <a href="https://twitter.com/grrrck/status/1378799812183793670?ref_src=twsrc%5Etfw">April 4, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+]
 
 ---
+
+## Map your own shortcuts
+
+R addins can be mapped to keyboard shortcuts.
+
+Dean Attali has a [curated list](https://github.com/daattali/addinslist) of packages with addins. My favourites include:
+
+- [styler](https://github.com/r-lib/styler)
+- [xaringan](https://github.com/yihui/xaringan)
+- [remedy](https://github.com/ThinkR-open/remedy)
+- [WrapRmd](https://github.com/tjmahr/WrapRmd)
+
+Under *Tools > Modify keyboard shortcuts*
+
+.footnote[
+`r emoji("memo")` https://support.rstudio.com/hc/en-us/articles/206382178-Customizing-Keyboard-Shortcuts
+]
+
+---
+class: inverse, bottom, left
+
+# `r emoji("sparkles")` Trick #3
+## Use snippets
+
+---
+
+## Use snippets... or create your own
+
+Under *RStudio > Preferences > Code > Snippets > Edit snippets*
+
+.pull-left[
+
+### R
+
+```
+snippet postgis
+  library(DBI)
+  library(RPostgres)
+  
+  con <- DBI::dbConnect(
+    RPostgres::Postgres(),
+    dbnmae = "my_db",
+    host = "myhost.org"
+  )
+```
+
+]
+
+.pull-right[
+
+### Markdown
+
+```
+snippet dets
+	<details><summary> ${1:summary} </summary>
+	${2:contents}
+	</details>
+```
+]
+
+.footnote[
+`r emoji("memo")` [Code Snippets in the RStudio IDE](https://support.rstudio.com/hc/en-us/articles/204463668-Code-Snippets)
+]
+
+---
+
 class: inverse, bottom, left
 
 # `r emoji("sparkles")` Trick #5
@@ -220,46 +458,66 @@ class: inverse, bottom, left
 
 ---
 
-- Mention usethis, ThinkR's idea for package development...
-- Also mention fs
+## Automate project set-up with `usethis` and `fs`
+
+.pull-left[
+- `usethis` can be useful in all kinds of projects, beyond R packages.
+    - For package development, see [The whole game](https://r-pkgs.org/whole-game.html) chapter in the **R packages** book.
+    - For Shiny apps, see the [golem](https://thinkr-open.github.io/golem/articles/a_start.html) framework.
+
+- `fs` is helps create, delete and modify files. It is robust and has some good defaults.
+]
+
+.pull-right[
+```{r}
+# Creates and switches you to project
+create_project("myproject")
+
+# Add documentation
+use_readme_md()
+
+# Set up git
+use_git()
+use_github()
+
+# Create directories
+fs::dir_create(c("data", "data-raw", "docs"))
+
+# Create and open up a file
+file.edit("data-raw/README.md")
+```
+]
 
 ---
 class: inverse, bottom, left
 
 # `r emoji("sparkles")` Trick #6
-## Code with style
+## Get the little things done from R
+
+(My current favourites)
 
 ---
 
-- styler
-- Ctrl + Shift + A
-- wrapRmd + RStudio Markdown viewer
+### Navigate to websites or directories
 
----
-class: inverse, bottom, left
+```{r}
+browseURL("https://twitter.com/rladiesdammam")
+```
 
-# `r emoji("sparkles")` Trick #6
-## Make interactive work more fun with the IDE
+### Download files
 
----
+```{r}
+usethis::use_zip("bit.ly/usethis-shortlink-example")
+# alternatively, usethis::use_code() is chattier
+```
 
-## Connections, jobs and git pane?
+### Lookup the source code
 
-Maybe just do one.
+```{r}
+lookup::lookup(mean)
+```
 
-
----
-class: inverse, bottom, left
-
-# `r emoji("sparkles")` Trick #6
-## Do it from R
-
----
-
-- Download files
-- Unzip files
-- Navigate to websites
-- Lookup source code
+### And you?
 
 ---
 class: inverse, middle, left

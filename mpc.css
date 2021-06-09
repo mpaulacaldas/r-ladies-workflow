@@ -1,9 +1,15 @@
 /* https://github.com/yihui/xaringan/issues/69#issuecomment-474199832 */
 .remark-slide-content p, ul, ol, li {
-  font-size: 27px;
+  font-size: 28px;
 }
 
-.small{font-size: 80%}
+.remark-code {
+  font-size: 20px;
+}
+
+.small{
+  font-size: 80%
+}
 
 .ejercicio {
   background-color: #bba7bb;
