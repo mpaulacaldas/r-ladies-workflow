@@ -50,7 +50,7 @@ xaringanExtra::embed_xaringan(
 emoji <- function(x) paste0(emo::ji(x), "&nbsp;")
 ```
 
-```{r metathis, echo=FALSE}
+```{r metathis, echo=FALSE, eval = TRUE}
 library(metathis)
 meta() %>%
   meta_name("github-repo" = rmarkdown::metadata$url_source) %>% 
@@ -518,8 +518,6 @@ lookup::lookup(mean)
 ```
 
 ### And you?
-
-<!-- Fake comment -->
 
 ---
 class: inverse, middle, left
