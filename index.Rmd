@@ -519,6 +519,8 @@ lookup::lookup(mean)
 
 ### And you?
 
+<!-- Fake comment -->
+
 ---
 class: inverse, middle, left
 background-image: url(`r rmarkdown::metadata$url_unsplash`)
